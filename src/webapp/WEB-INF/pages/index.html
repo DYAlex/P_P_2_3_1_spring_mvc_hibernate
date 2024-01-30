@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Hello Page</title>
@@ -13,13 +12,13 @@
     <br />
     <br />
     <a th:href="@{/users/edit(id=1)}">Test</a>
-    <table border = 1px solid black; style='border-collapse:collapse; width:70%; padding:10px; text-align: center; vertical-align: middle;'>
+    <table border = 1; style='border-collapse:collapse; width:70%; padding:10px; text-align: center; vertical-align: middle;'>
         <thead style='background-color: lightblue; color: white; padding: 10px;'>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Lastname</th>
-            <th>Role</th>
-            <th>Action</th>
+            <tr>Id</tr>
+            <tr>Name</tr>
+            <tr>Lastname</tr>
+            <tr>Role</tr>
+            <tr>Action</tr>
         </thead>
         <tbody>
             <tr th:each="user : ${users}">
