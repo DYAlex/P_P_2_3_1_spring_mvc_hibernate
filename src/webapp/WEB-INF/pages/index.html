@@ -11,14 +11,13 @@
     <button onclick="window.location.href = '/users/new';">Add new user</button>
     <br />
     <br />
-    <a th:href="@{/users/edit(id=1)}">Test</a>
     <table border = 1; style='border-collapse:collapse; width:70%; padding:10px; text-align: center; vertical-align: middle;'>
         <thead style='background-color: lightblue; color: white; padding: 10px;'>
-            <tr>Id</tr>
-            <tr>Name</tr>
-            <tr>Lastname</tr>
-            <tr>Role</tr>
-            <tr>Action</tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Lastname</th>
+            <th>Role</th>
+            <th>Action</th>
         </thead>
         <tbody>
             <tr th:each="user : ${users}">
@@ -26,7 +25,11 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.role}"></td>
-                <td><a th:href="@{'/users/edit?' + ${user.id}}">Edit</a> <a th:href="@{'/users/delete?' + ${user.id}}">Delete</a></td>
+                <td>
+                    <a th:href="@{/users/show(id = ${user.id})}">Details</a>
+                    <a th:href="@{/users/edit(id = ${user.id})}">Edit</a>
+                    <a th:href="@{/users/delete(id = ${user.id})}">Delete</a>
+                </td>
             </tr>
         </tbody>
     </table>
