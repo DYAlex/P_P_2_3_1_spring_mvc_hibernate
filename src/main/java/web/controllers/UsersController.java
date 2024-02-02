@@ -2,7 +2,6 @@ package web.controllers;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import web.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,7 +36,8 @@ public class UsersController {
         return "/users/edit";
     }
 
-    @PostMapping("/{id}")
+//    @PostMapping("/{id}")
+    @PutMapping("/{id}")
     public String editUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
         return "redirect:/";
@@ -54,8 +54,8 @@ public class UsersController {
         return "redirect:/";
     }
 
-    @GetMapping(value = "/users/delete")
-    public String deleteUser(@RequestParam long id) {
+    @DeleteMapping(value = "/users/delete")
+    public String deleteUser(@RequestParam Long id) {
         userService.removeUser(id);
         return "redirect:/";
     }
