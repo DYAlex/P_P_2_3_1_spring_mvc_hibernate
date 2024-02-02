@@ -10,31 +10,30 @@ import javax.persistence.TypedQuery;
 import java.util.List;
 
 @Component
-@Transactional
 public class UserDaoImpl implements UserDao {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         TypedQuery<User> query = entityManager.createQuery("SELECT u FROM User u", User.class);
         return query.getResultList();
     }
 
-    @Transactional(readOnly = true)
     public User getUserById(Long id) {
         return entityManager.find(User.class, id);
     }
 
+    @Transactional
     public void addUser(User user) {
         entityManager.persist(user);
     }
 
-
+    @Transactional
     public void updateUser(User user) {
         entityManager.merge(user);
     }
 
+    @Transactional
     public void removeUser(Long id) {
         entityManager.remove(getUserById(id));
     }
