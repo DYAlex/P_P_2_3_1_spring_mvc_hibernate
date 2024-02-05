@@ -36,7 +36,6 @@ public class UsersController {
         return "/users/edit";
     }
 
-//    @PostMapping("/{id}")
     @PutMapping("/{id}")
     public String editUser(@ModelAttribute("user") User user) {
         userService.updateUser(user);
