@@ -8,7 +8,6 @@ import web.models.User;
 import java.util.List;
 
 @Service
-@Transactional
 public class UserServiceImpl implements UserService {
     private final UserDao userDao;
 
@@ -16,24 +15,25 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
-    @Transactional(readOnly = true)
     public List<User> getAllUsers() {
         return userDao.getAllUsers();
     }
 
-    @Transactional(readOnly = true)
     public User getUserById(Long id) {
         return userDao.getUserById(id);
     }
 
+    @Transactional
     public void addUser(User user) {
         userDao.addUser(user);
     }
 
+    @Transactional
     public void updateUser(User user) {
         userDao.updateUser(user);
     }
 
+    @Transactional
     public void removeUser(Long id) {
         userDao.removeUser(id);
     }
